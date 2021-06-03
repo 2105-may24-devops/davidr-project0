@@ -1,0 +1,49 @@
+[
+    {
+        "py/object": "entity.Player",
+        "name": "Potato Man",
+        "level": 5,
+        "health": 150,
+        "stats": {
+            "py/object": "entity.Stats",
+            "attack": 2,
+            "defense": 3,
+            "dexterity": 4,
+            "evasion": 50,
+            "yes": 10
+        },
+        "is_guarding": false,
+        "equipped": {
+            "weapon": null,
+            "armor": null,
+            "shield": null
+        },
+        "inventory": [
+            {
+                "py/object": "entity.Item",
+                "name": "Potion",
+                "health": 10,
+                "stats": {
+                    "py/object": "entity.Stats",
+                    "attack": 0,
+                    "defense": 0,
+                    "dexterity": 0,
+                    "evasion": 0
+                }
+            }
+        ]
+    },
+    {
+        "py/object": "game.game_manager.Config",
+        "enemy_names": [
+            "Hoodlum",
+            "Thug",
+            "Pirate",
+            "Turtle"
+        ],
+        "distance": 500.9000000000002,
+        "chance_of_encounter": 0.5,
+        "chance_of_battle": 0.9,
+        "walking_speed": 0.1
+    }
+]
