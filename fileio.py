@@ -1,7 +1,5 @@
 from game_manager import Config
-import json
 import entity
-import pathlib as Path
 import jsonpickle
 import os
 
@@ -25,13 +23,3 @@ def load(filename):
     f = open(filename, "r")
     
     return jsonpickle.decode(f.read())
-
-#save(player, config)
-
-# print(load("./saves/save1.json"))
-
-# newPlayer = entity.Player("ronald", 132, 1, entity.Stats(22, 31, 43, 51))
-
-# newPlayer = load("./saves/save1.json")[0]
-
-# print(newPlayer.name)

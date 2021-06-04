@@ -1,5 +1,4 @@
 from enum import Enum
-import json
 import random
 
 class BattleResult(Enum):
@@ -78,15 +77,6 @@ class Entity:
     def add_health(self, amount):
         self.health = max(0, self.health + amount)
 
-    # Unused - Remove Soon
-    # # Convert an entity into a string so it can be saved to a file and modified
-    # def stringify():
-    #     pass
-    
-    # def toJSON(self):
-    #     return json.dumps(self, default=lambda o: o.__dict__, 
-    #         sort_keys=True, indent=4)
-
 class Player(Entity):
     def __init__(self, name, level, health, stats):
         super().__init__(name, level, health, stats)
@@ -97,17 +87,3 @@ class Player(Entity):
         super().load(player)
         self.equipped = player.equipped
         self.inventory = player.inventory
-
-
-# main = Player("Ron", 5, 20, Stats(5, 5, 5, 5))
-# enemy = Entity("Rat", 3, 10, Stats(3, 3, 3, 3))
-
-# for i in range(0, 10):
-#     if (random.random() >= .5): enemy.is_guarding = True
-#     else: enemy.is_guarding = False
-#     main.attack(enemy)
-
-# for i in range(0, 10):
-#     if (random.random() >= .5): main.is_guarding = True
-#     else: main.is_guarding = False
-#     enemy.attack(main)

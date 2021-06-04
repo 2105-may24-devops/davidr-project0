@@ -88,6 +88,3 @@ def play():
     print(term.black_on_green(term.center('Press any key to exit.')))
     with term.cbreak(), term.hidden_cursor():
         term.inkey()
-
-# def load():
-#     pass

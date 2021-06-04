@@ -156,8 +156,7 @@ def run_fight_menu_selection(selection, player, enemy, escaped):
     # Fight
     if selection == 0:
         #// TODO: Decide what you can find
-        print(term.home + term.move_y(term.height // 2))        
-        #print(term.black_on_green(term.center('You strike the enemy')))
+        print(term.home + term.move_y(term.height // 2))
         player.attack(enemy)
         with term.cbreak(), term.hidden_cursor():
             term.inkey()
@@ -165,7 +164,6 @@ def run_fight_menu_selection(selection, player, enemy, escaped):
     elif selection == 1:
         #// TODO: Maybe something interesting can happen here?
         print(term.home + term.move_y(term.height // 2))
-        #print(term.black_on_green(term.center('You brace yourself for an attack')))
         player.guard()
         with term.cbreak(), term.hidden_cursor():
             term.inkey()
