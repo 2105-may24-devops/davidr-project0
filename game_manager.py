@@ -1,7 +1,7 @@
 from entity import Entity, Player, Stats
 import random
 import time
-import menus.menus
+import menus
 
 from blessed import Terminal
 

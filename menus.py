@@ -1,5 +1,5 @@
 from fileio import load, save
-from game.game_manager import *
+from game_manager import *
 from blessed import Terminal
 
 term = Terminal()

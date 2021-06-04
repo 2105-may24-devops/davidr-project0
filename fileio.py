@@ -1,4 +1,4 @@
-from game.game_manager import Config
+from game_manager import Config
 import json
 import entity
 import pathlib as Path

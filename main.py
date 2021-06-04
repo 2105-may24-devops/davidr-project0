@@ -1,4 +1,4 @@
-from menus.menus import main_menu_loop
+import menus
 from blessed import Terminal
 
 #   _____        __ _       _ _         _____                                     
@@ -33,4 +33,4 @@ with term.cbreak(), term.hidden_cursor():
     
 # Main Menu
 
-main_menu_loop()
+menus.main_menu_loop()
