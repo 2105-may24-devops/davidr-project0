@@ -3,11 +3,17 @@ import json
 import entity
 import pathlib as Path
 import jsonpickle
+import os
+import sys
 
 player = entity.Player("bob", 5, 10, entity.Stats(2, 3, 4, 5))
 config = Config()
 
 def save(player, config):
+
+    if not os.path.isdir(sys.path[0] + "/saves"):
+        os.makedirs(sys.path[0] + "/saves")
+
     f = open("./saves/save1.json", "w")
     f.write(jsonpickle.encode([player, config], indent=4))
     f.close()
