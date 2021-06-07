@@ -6,7 +6,7 @@ import menus
 from blessed import Terminal
 
 class Config():
-    def __init__(self, enemy_names = ["Rat", "Thug", "Pirate"], distance = 0.0, chance_of_encounter = .1, chance_of_battle = .9, walking_speed = .1):
+    def __init__(self, enemy_names = ["Rat", "Thug", "Pirate"], distance = 0.0, chance_of_encounter = .4, chance_of_battle = .7, walking_speed = .1):
         self.enemy_names = enemy_names
         self.distance = distance
         self.chance_of_encounter =  chance_of_encounter
