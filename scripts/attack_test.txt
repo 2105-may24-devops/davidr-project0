@@ -1,0 +1,5 @@
+Protag is attempting to attack Enemy
+Protag hit Enemy for 5 damage.
+Enemy has 5 HP left.
+Enemy is attempting to attack Protag
+Enemy missed.
