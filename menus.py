@@ -30,8 +30,12 @@ def run_main_menu_selection(selection):
     if selection == 0:
         play()
     elif selection == 1:
-        load("./saves/save1.json")
-        play()
+        player = Player()
+        config = Config()
+        loaded = load("./saves/save1.json")
+        player.load(loaded[0])
+        config.load(loaded[1])
+        play(player, config)
     else:
         print(term.home + term.clear + term.move_down(10) +
                 term.center("Thank you for playing"))
@@ -137,8 +141,8 @@ fight_menu = ["Fight", "Guard", "Use Item", "Flee"]
 def display_fight_menu(selection, player, enemy, clear = True):
     
     if clear: print(term.clear())
-    print(term.home + term.ljust(f"{player.name} HP: {player.health}"))
-    print(term.rjust(f"{enemy.name} HP: {enemy.health}"))
+    print(term.home + term.ljust(term.green(f"{player.name} HP: {player.health}")))
+    print(term.rjust(term.green(f"{enemy.name} HP: {enemy.health}")))
     print(term.home + term.move_y(5) + term.green(term.center("Fight Menu")))
     print(term.move_down(2))
 
@@ -219,8 +223,8 @@ idle_menu = ["Continue Forward", "Save", "Load", "Exit"]
 def display_idle_menu(selection, player, config):
     
     print(term.clear())
-    print(term.home + term.ljust(f"{player.name} HP: {player.health}"))
-    print(term.rjust(f"Distance traveled: {round(config.distance, 2)}m"))
+    print(term.home + term.ljust(term.green(f"{player.name} HP: {player.health}")))
+    print(term.rjust(term.green(f"Distance traveled: {round(config.distance, 2)}m")))
     print(term.home + term.move_y(5) +
           term.green(term.center("Idle Menu")))
     print(term.move_down(2))

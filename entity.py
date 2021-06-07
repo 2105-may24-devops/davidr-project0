@@ -1,5 +1,8 @@
 from enum import Enum
+from blessed import Terminal
 import random
+
+term = Terminal()
 
 class BattleResult(Enum):
     HIT = 1
@@ -36,7 +39,7 @@ class Entity:
 
     def attack(self, other):
         # Attacking compares self's dexterity vs other's evasion
-        print(f"{self.name} is attempting to attack {other.name}")
+        print(term.green(f"{self.name} is attempting to attack {other.name}"))
         total_dex_evasion = self.stats.dexterity + other.stats.evasion
 
         # If random() returns a value within the attack range we attack. Otherwise it's a miss.
@@ -44,11 +47,11 @@ class Entity:
             damage = self.stats.attack
             # A target that is guarding only takes the amount of incoming damage minus their defense
             if (other.is_guarding):
-                print(f"{other.name} is guarding.")
+                print(term.green(f"{other.name} is guarding."))
                 damage = max(0, damage - other.stats.defense)
             other.add_health(-damage)
-            print(f"{self.name} hit {other.name} for {damage} damage.")
-            print(f"{other.name} has {other.health} HP left.")
+            print(term.green(f"{self.name} hit {other.name} for {damage} damage."))
+            print(term.green(f"{other.name} has {other.health} HP left."))
             return BattleResult.HIT
         else:
             print(f"{self.name} missed.")
@@ -56,10 +59,10 @@ class Entity:
 
     def guard(self):
         self.is_guarding = True
-        print(f"{self.name} braces for impact.") 
+        print(term.green(f"{self.name} braces for impact."))
     
     def flee(self, other):
-        print(f"{self.name} is attempting to flee.")
+        print(term.green(f"{self.name} is attempting to flee."))
         total_evasion = self.stats.evasion + other.stats.evasion
         if random.random() <= self.stats.evasion / total_evasion:
             return True
@@ -78,7 +81,7 @@ class Entity:
         self.health = max(0, self.health + amount)
 
 class Player(Entity):
-    def __init__(self, name, level, health, stats):
+    def __init__(self, name = "Protag", level = 1, health = 10, stats = Stats(5, 5, 5, 5)):
         super().__init__(name, level, health, stats)
         self.equipped = {"weapon": None, "armor": None, "shield": None}
         self.inventory = [(Item("Potion", Stats(0,0,0,0), 10))]

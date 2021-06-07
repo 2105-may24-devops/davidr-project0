@@ -20,12 +20,9 @@ class Config():
         self.chance_of_battle = config.chance_of_battle
         self.walking_speed = config.walking_speed
 
-def play():
+def play(player = Player("Protag", 10, 10, Stats(2, 4, 3, 4)), config = Config()):
     term = Terminal()
     print(term.home + term.clear)
-    config = Config()
-    player = Player("Protag", 10, 10, Stats(2, 4, 3, 4))
-
 
     while player.health > 0:
         print(term.home + term.clear)
@@ -48,7 +45,7 @@ def play():
                 escaped = [False]
                 # Make sure everyone is alive or the player hasn't escaped before starting a new turn
                 while player.health > 0 and enemy.health > 0 and not escaped[0]:
-                    print(f"{player.name} HP: {player.health} | {enemy.name} HP: {enemy.health}")
+                    #print(term.green(f"{player.name} HP: {player.health} | {enemy.name} HP: {enemy.health}"))
                     # Reset player guard
                     player.is_guarding = False
 
@@ -68,9 +65,9 @@ def play():
                                 term.inkey()
 
                 if enemy.health <= 0:            
-                    print(f"{enemy.name} has been defeated.")
+                    print(term.green(f"{enemy.name} has been defeated."))
                 if player.health <= 0:            
-                    print(f"{player.name} has been defeated.")
+                    print(term.green(f"{player.name} has been defeated."))
         else:
             #// TODO: Add some random flavor text every once in a while
             
