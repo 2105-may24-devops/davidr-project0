@@ -1,0 +1,47 @@
+- name: Check installs
+  hosts: all
+  gather_facts: no
+
+  tasks:
+  - name: Gather the package facts
+    package_facts:
+      manager: auto
+
+  - name: Check whether a package called python3 is installed
+    debug:
+      msg: "python3 version {{ ansible_facts.packages['python3'][0].version }} found"
+    when: "'python3' in ansible_facts.packages"
+
+  - name: Install python3
+    package:
+      name: python3
+      state: latest
+    become: yes
+    become_user: root
+    when: "'python3' not in ansible_facts.packages"
+
+  - name: Check if virtualenv is installed
+    debug:
+      msg: "virtualenv version {{ ansible_facts.packages['virtualenv'][0].version }} found"
+    when: "'virtualenv' in ansible_facts.packages"
+
+  - name: Install virtualenv
+    package:
+      name: virtualenv
+      state: latest
+    become: yes
+    become_user: root
+    when: "'virtualenv' not in ansible_facts.packages"
+
+  - name: Check if git is installed
+    debug:
+      msg: "git version {{ ansible_facts.packages['git'][0].version }} found"
+    when: "'git' in ansible_facts.packages"
+
+  - name: Install git
+    package:
+      name: git
+      state: latest
+    become: yes
+    become_user: root
+    when: "'git' not in ansible_facts.packages"
