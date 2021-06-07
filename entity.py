@@ -54,7 +54,7 @@ class Entity:
             print(term.green(f"{other.name} has {other.health} HP left."))
             return BattleResult.HIT
         else:
-            print(f"{self.name} missed.")
+            print(term.green(f"{self.name} missed."))
             return BattleResult.MISS 
 
     def guard(self):
