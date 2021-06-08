@@ -1,5 +1,6 @@
 import sys
 import menus
+import sys
 from blessed import Terminal
 
 #   _____        __ _       _ _         _____                                     
@@ -15,7 +16,23 @@ term = Terminal()
 
 # non-interactive mode
 if len(sys.argv) > 1:
-  print("Assuming direct control")
+  # print("Assuming direct control")
+  from entity import Player, Entity
+  import random
+
+  random.seed(1337)
+  player = Player()
+  enemy = Entity()
+
+  if sys.argv[1].lower() == "attack":
+    player.attack(enemy)
+    enemy.attack(player)
+  
+  if sys.argv[1].lower() == "guard":
+    player.guard()
+    enemy.attack(player)
+    enemy.guard()
+    player.attack(enemy)
 
 # interactive mode
 else:
