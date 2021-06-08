@@ -1,0 +1,8 @@
+Protag braces for impact.
+Enemy is attempting to attack Protag
+Enemy missed.
+Enemy braces for impact.
+Protag is attempting to attack Enemy
+Enemy is guarding.
+Protag hit Enemy for 3 damage.
+Enemy has 7 HP left.

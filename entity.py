@@ -11,7 +11,7 @@ class BattleResult(Enum):
     DODGE = 4
 
 class Stats:
-    def __init__(self, attack, defense, dexterity, evasion):
+    def __init__(self, attack = 2, defense = 2, dexterity = 2, evasion = 2):
         self.attack = attack
         self.defense = defense
         self.dexterity = dexterity
@@ -24,7 +24,7 @@ class Item:
         self.stats = stats
 
 class Entity:
-    def __init__(self, name, level, health, stats):
+    def __init__(self, name = "Enemy", level = 1, health = 10, stats = Stats()):
         self.name = name
         self.level = level
         self.health = health
@@ -54,7 +54,7 @@ class Entity:
             print(term.green(f"{other.name} has {other.health} HP left."))
             return BattleResult.HIT
         else:
-            print(f"{self.name} missed.")
+            print(term.green(f"{self.name} missed."))
             return BattleResult.MISS 
 
     def guard(self):
