@@ -1,11 +1,13 @@
-- name: Deploy David R's P0
+- name: Install David R's P0
   hosts: all
+  vars:
+      app_path: "~/ansible-repos/davidr-project0"
   tasks:
     - name: Clone git
       git:
         repo: https://github.com/2105-may24-devops/davidr-project0
         clone: yes
-        dest: ~/ansible-repos/davidr-project0
+        dest: "{{ app_path }}"
       
     - name: Install setuptools via pip
       pip:
@@ -23,21 +25,20 @@
 
     - name: Install requirements in venv
       pip: 
-        requirements: ~/ansible-repos/davidr-project0/requirements.txt
-        virtualenv: ~/ansible-repos/davidr-project0/venv
-        virtualenv_python: -m venv
-    
+        requirements: "{{ app_path }}/requirements.txt"
+        virtualenv: "{{ app_path }}/venv"
+        virtualenv_python: python3
 
     - name: Create a directory if it does not exist
       file:
-        path: ~/ansible-repos/davidr-project0/saves/
+        path: "{{ app_path }}/saves/"
         state: directory
 
 
     - name: Creating a save directory and file
       copy:
         force: yes
-        dest: ~/ansible-repos/davidr-project0/saves/save1.json
+        dest: "{{ app_path }}/saves/save1.json"
         content: |
           [
           {

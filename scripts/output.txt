@@ -1,8 +1,10 @@
 Protag braces for impact.
 Enemy is attempting to attack Protag
-Enemy missed.
+Protag is guarding.
+Enemy hit Protag for 0 damage.
+Protag has 100 HP left.
 Enemy braces for impact.
 Protag is attempting to attack Enemy
 Enemy is guarding.
-Protag hit Enemy for 3 damage.
-Enemy has 7 HP left.
+Protag hit Enemy for 46 damage.
+Enemy has 54 HP left.

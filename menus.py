@@ -26,19 +26,18 @@ def display_main_menu(selection):
     print(term.center(menu_string))
 
 def run_main_menu_selection(selection):
-    print(term.green_reverse('Running {}'.format(main_menu[selection][0])))
     if selection == 0:
         play()
     elif selection == 1:
         player = Player()
         config = Config()
-        loaded = load("./saves/save1.json")
+        loaded = load()
         player.load(loaded[0])
         config.load(loaded[1])
         play(player, config)
     else:
         print(term.home + term.clear + term.move_down(10) +
-                term.center("Thank you for playing"))
+                term.center(term.green("Thank you for playing")))
         print(term.home + term.move_y(term.height // 2))
         print(term.black_on_green(term.center('Press any key to exit.')))
         with term.cbreak(), term.hidden_cursor():
@@ -253,7 +252,7 @@ def run_idle_menu_selection(selection, player, config):
             term.inkey()
     # Load
     elif selection == 2:
-        loaded = load("./saves/save1.json")
+        loaded = load()
         player.load(loaded[0])
         config.load(loaded[1])
 
@@ -264,7 +263,7 @@ def run_idle_menu_selection(selection, player, config):
             term.inkey()
     else:
         print(term.home + term.clear + term.move_down(10) +
-                term.center("Thank you for playing"))
+                term.center(term.green("Thank you for playing")))
         print(term.home + term.move_y(term.height // 2))
         print(term.black_on_green(term.center('Press any key to exit.')))
         with term.cbreak(), term.hidden_cursor():

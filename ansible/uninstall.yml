@@ -1,0 +1,7 @@
+- name: Uninstall David R's P0
+  hosts: all
+  tasks:
+    - name: Remove project folder
+      file:
+        path: ~/ansible-repos/davidr-project0/
+        state: absent
