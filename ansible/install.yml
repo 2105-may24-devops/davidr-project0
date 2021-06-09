@@ -42,49 +42,49 @@
         dest: "{{ app_path }}/saves/save1.json"
         content: |
           [
-          {
-              "py/object": "entity.Player",
-              "name": "Ansible",
-              "level": 150,
-              "health": 100,
-              "stats": {
-                  "py/object": "entity.Stats",
-                  "attack": 5,
-                  "defense": 4,
-                  "dexterity": 3,
-                  "evasion": 20
-              },
-              "is_guarding": false,
-              "equipped": {
-                  "weapon": null,
-                  "armor": null,
-                  "shield": null
-              },
-              "inventory": [
-                  {
-                      "py/object": "entity.Item",
-                      "name": "Potion",
-                      "health": 10,
-                      "stats": {
-                          "py/object": "entity.Stats",
-                          "attack": 0,
-                          "defense": 0,
-                          "dexterity": 0,
-                          "evasion": 0
-                      }
-                  }
-              ]
-          },
-          {
-              "py/object": "game_manager.Config",
-              "enemy_names": [
-                  "Dragon",
-                  "Orc",
-                  "Mage"
-              ],
-              "distance": 20,
-              "chance_of_encounter": 0.4,
-              "chance_of_battle": 0.8,
-              "walking_speed": 0.5
-          }
+            {
+                "py/object": "entity.Player",
+                "name": "Ansible",
+                "level": 150,
+                "health": 100,
+                "stats": {
+                    "py/object": "entity.Stats",
+                    "attack": 5,
+                    "defense": 4,
+                    "dexterity": 3,
+                    "evasion": 20
+                },
+                "is_guarding": false,
+                "equipped": {
+                    "weapon": null,
+                    "armor": null,
+                    "shield": null
+                },
+                "inventory": [
+                    {
+                        "py/object": "entity.Item",
+                        "name": "Potion",
+                        "health": 10,
+                        "stats": {
+                            "py/object": "entity.Stats",
+                            "attack": 0,
+                            "defense": 0,
+                            "dexterity": 0,
+                            "evasion": 0
+                        }
+                    }
+                ]
+            },
+            {
+                "py/object": "game_manager.Config",
+                "enemy_names": [
+                    "Dragon",
+                    "Orc",
+                    "Mage"
+                ],
+                "distance": 20,
+                "chance_of_encounter": 0.4,
+                "chance_of_battle": 0.8,
+                "walking_speed": 0.5
+            }
           ]
