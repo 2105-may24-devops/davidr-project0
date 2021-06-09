@@ -6,5 +6,5 @@ Protag has 100 HP left.
 Enemy braces for impact.
 Protag is attempting to attack Enemy
 Enemy is guarding.
-Protag hit Enemy for 46 damage.
-Enemy has 54 HP left.
+Protag hit Enemy for 0 damage.
+Enemy has 100 HP left.

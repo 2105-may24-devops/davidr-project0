@@ -1,0 +1,8 @@
+- name: Test David R's P0
+  hosts: all
+  vars:
+      app_path: "~/ansible-repos/davidr-project0"
+  tasks:
+    - name: Test the project
+      script:
+        cmd: "{{ app_path }}/scripts/test.sh all"

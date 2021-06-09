@@ -18,7 +18,7 @@ main () {
             sed -i "s/{enemy_attack}/$enemy_attack/" ./scripts/attack_test.txt
             sed -i "s/{enemy_hp}/$(( both_hp - player_attack >= 0 ? both_hp - player_attack : 0 ))/" ./scripts/attack_test.txt
 
-            py -m main attack $player_attack $enemy_attack > ./scripts/output.txt
+            python3 -m main attack $player_attack $enemy_attack > ./scripts/output.txt
 
             file1="./scripts/output.txt"
             file2="./scripts/attack_test.txt"
@@ -61,7 +61,7 @@ main () {
             sed -i "s/{enemy_damage}/$enemy_damage/" ./scripts/guard_test.txt
             sed -i "s/{enemy_hp}/$(( both_hp - player_damage >= 0 ? both_hp - player_damage : 0 ))/" ./scripts/guard_test.txt
 
-            py -m main guard $player_attack $enemy_attack $player_defense $enemy_defense> ./scripts/output.txt
+            python3 -m main guard $player_attack $enemy_attack $player_defense $enemy_defense> ./scripts/output.txt
 
             file1="./scripts/output.txt"
             file2="./scripts/guard_test.txt"
@@ -94,7 +94,7 @@ main () {
             player_level=$((1 + $RANDOM % 150))
             player_health=40
 
-            py -m main save player $player_name $player_level $player_health
+            python3 -m main save player $player_name $player_level $player_health
             if [[ $(grep -c -e '"name": '"\"${player_name}\"" -e '"level": '"$player_level" -e '"health": '"$player_health" ./saves/savePLAYERTEST.json) -eq 3 ]]; then
                 echo "Save test #$i passed"
                 (( success_counter = success_counter + 1 ))
