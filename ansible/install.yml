@@ -7,6 +7,7 @@
       git:
         repo: https://github.com/2105-may24-devops/davidr-project0
         clone: yes
+        force: yes
         dest: "{{ app_path }}"
       
     - name: Install setuptools via pip
@@ -24,7 +25,7 @@
       become_user: root
 
     - name: Install requirements in venv
-      pip: 
+      pip:
         requirements: "{{ app_path }}/requirements.txt"
         virtualenv: "{{ app_path }}/venv"
         virtualenv_python: python3

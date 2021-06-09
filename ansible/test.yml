@@ -2,7 +2,18 @@
   hosts: all
   vars:
       app_path: "~/ansible-repos/davidr-project0"
+      ansible_python_interpreter: "{{ app_path }}/venv/bin/python3"
   tasks:
+    - name: Make test executable
+      file:
+        path: "{{ app_path }}/scripts/test.sh"
+        mode: a+x
+    # - name: Test the project
+    #   script:
+    #     cmd: "{{ app_path }}/scripts/test.sh all"
     - name: Test the project
-      script:
-        cmd: "{{ app_path }}/scripts/test.sh all"
+      shell:
+        cmd: |
+          source /home/davidr/ansible-repos/davidr-project0/venv/bin/activate
+          ./scripts/test.sh all
+        chdir: /home/davidr/ansible-repos/davidr-project0
