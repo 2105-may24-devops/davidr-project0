@@ -51,6 +51,6 @@ steps:
 - task: Ansible@0
   inputs:
     ansibleInterface: 'agentMachine'
-    playbookPathOnAgentMachine: './ansible/check-install.yml'
+    playbookPathOnAgentMachine: './ansible/check-installs.yml'
     inventoriesAgentMachine: 'file'
     inventoryFileOnAgentMachine: './ansible/inventory'
