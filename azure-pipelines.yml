@@ -27,11 +27,6 @@ steps:
     venv/bin/python -m pip install -r requirements.txt
   displayName: 'Install dependencies'
 
-#- script: |
-#    pip install pytest pytest-azurepipelines
-#    pytest
-#  displayName: 'pytest'
-
 - script: |
     bash ./scripts/test.sh all
   displayName: 'Run tests'
