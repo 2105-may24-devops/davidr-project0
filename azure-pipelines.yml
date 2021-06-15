@@ -27,7 +27,8 @@ steps:
 
 - script: |
     python -m pip install --upgrade pip
-    pip install -r requirements.txt
+    python -m venv venv
+    venv/bin/python install -r requirements.txt
   displayName: 'Install dependencies'
 
 #- script: |
