@@ -34,3 +34,4 @@ steps:
 
 - script: |
     bash ./scripts/test.sh all
+  displayName: 'Run tests'
