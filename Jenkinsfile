@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'echo New Code'
+                sh 'ansible-playbook --version'
             }
         }
     }
