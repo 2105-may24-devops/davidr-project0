@@ -6,7 +6,8 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'sudo apt install ansible'
+                sh 'su -'
+                sh 'apt install ansible'
                 sh 'ansible-playbook --version'
             }
         }
