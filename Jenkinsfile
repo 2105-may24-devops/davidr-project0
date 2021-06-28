@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'test'
+        label 'ubuntu-docker'
     }
     triggers { pollSCM('H/1 * * * *') }
     stages {
