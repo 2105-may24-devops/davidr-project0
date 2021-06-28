@@ -20,7 +20,7 @@ pipeline {
         stage('deploy') {
             steps {
                 ansiblePlaybook(
-                    credentialsId: 'trainer-vm',
+                    credentialsId: 'trainer-vm-key',
                     inventory: 'ansible/inventory',
                     playbook: 'ansible/install.yml',
                     disableHostKeyChecking: true)
