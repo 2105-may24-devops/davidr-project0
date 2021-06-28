@@ -8,10 +8,12 @@ pipeline {
             steps {
                 sh 'echo Just taking up space'
             }
+        }
         stage('test') {
             steps {
                 sh 'bash ./scripts/test.sh all'
             }
+        }
         stage('deploy') {
             steps {
                 ansiblePlaybook(
@@ -20,5 +22,6 @@ pipeline {
                     playbook: 'ansible/install.yml',
                     disableHostKeyChecking: true)
             }
+        }
     }
 }
